@@ -1,0 +1,17 @@
+<class id='5'>
+
+    <student id = '0' name = 'zyh'>
+        <habit name='singleton addiction'>
+        </habit>
+    </student>
+
+    <student id = '1' name = 'lhr'>
+        <habit name='template'>
+        </habit>
+
+        <habit name='command'>
+        </habit>
+    </student>
+
+</class>
+
