@@ -1,7 +1,7 @@
-package test;
+package com.zyh.pro.xmlparser.test;
 
-import main.IScanner;
-import main.Scanner;
+import com.zyh.pro.xmlparser.main.IScanner;
+import com.zyh.pro.xmlparser.main.Scanner;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

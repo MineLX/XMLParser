@@ -1,4 +1,4 @@
-package main;
+package com.zyh.pro.xmlparser.main;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

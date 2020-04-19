@@ -1,7 +1,6 @@
-package main;
+package com.zyh.pro.xmlparser.main;
 
 import java.util.Arrays;
-import java.util.function.IntPredicate;
 
 public class Scanner implements IScanner {
 

@@ -1,6 +1,6 @@
-package test;
+package com.zyh.pro.xmlparser.test;
 
-import main.XMLNode;
+import com.zyh.pro.xmlparser.main.XMLNode;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;

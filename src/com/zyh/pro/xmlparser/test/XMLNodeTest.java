@@ -1,11 +1,8 @@
-package test;
+package com.zyh.pro.xmlparser.test;
 
-import main.XMLNode;
+import com.zyh.pro.xmlparser.main.XMLNode;
 import org.junit.Test;
 
-import java.util.Map;
-
-import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;

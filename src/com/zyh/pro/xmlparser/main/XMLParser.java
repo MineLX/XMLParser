@@ -1,4 +1,4 @@
-package main;
+package com.zyh.pro.xmlparser.main;
 
 public class XMLParser {
 	public XMLNode parse(String source) {

@@ -1,8 +1,8 @@
-package test;
+package com.zyh.pro.xmlparser.test;
 
-import main.Files;
-import main.XMLNode;
-import main.XMLParser;
+import com.zyh.pro.xmlparser.main.Files;
+import com.zyh.pro.xmlparser.main.XMLNode;
+import com.zyh.pro.xmlparser.main.XMLParser;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -12,7 +12,7 @@ public class XMLParserTest {
 
 	@Test
 	public void combination_1_test() {
-		XMLNode classNode = parseToNode(Files.toString("/test/combination_1_test.test"));
+		XMLNode classNode = parseToNode(Files.toString("/com/zyh/pro/xmlparser/test/combination_1_test.test"));
 		assertThat(classNode.getTag(), is("class"));
 		assertThat(classNode.getProperty("id"), is("5"));
 		assertThat(classNode.getChildren().size(), is(2));
