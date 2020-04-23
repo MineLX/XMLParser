@@ -2,14 +2,17 @@ package com.zyh.pro.xmlparser.main;
 
 import java.io.PrintStream;
 import java.util.*;
+import java.util.function.Consumer;
 
-public class XMLNode {
+public class XMLNode implements ITree<XMLNode> {
 
 	private final List<XMLNode> children;
 
 	private final Map<String, String> properties;
 
-	private final String tagName;
+	private String tagName;
+
+	private XMLNode parent;
 
 	public XMLNode(String tagName) {
 		this.tagName = tagName;
@@ -20,23 +23,32 @@ public class XMLNode {
 
 	@Override
 	public String toString() {
-		return "XMLNode <" + tagName + ">";
+		return "XMLNode(" + tagName + ")";
 	}
 
 	public String getTag() {
 		return tagName;
 	}
 
+	@Override
 	public XMLNode getChildAt(int at) {
 		return children.get(at);
 	}
 
+	@Override
 	public List<XMLNode> getChildren() {
 		return Collections.unmodifiableList(children);
 	}
 
+	@Override
 	public void addChild(XMLNode child) {
 		children.add(child);
+		child.parent = this;
+	}
+
+	@Override
+	public XMLNode self() {
+		return this;
 	}
 
 	public void addProperty(String key, String value) {
@@ -81,5 +93,42 @@ public class XMLNode {
 			printStream.print(entry.getValue());
 			printStream.print("\"");
 		}
+	}
+
+	public void rename(String tagName) {
+		this.tagName = tagName;
+	}
+
+	public XMLNode getParent() {
+		return parent;
+	}
+
+	public void removeFromParent() {
+		parent.removeChild(this);
+	}
+
+	public void removeChild(XMLNode child) {
+		children.remove(child);
+	}
+
+	public void removeProperty(String propertyName) {
+		properties.remove(propertyName);
+	}
+
+	@Override
+	public boolean hasChild() {
+		return children.size() != 0;
+	}
+
+	public void forEach(Consumer<XMLNode> consumer) {
+		consumer.accept(this);
+		for (XMLNode child : children)
+			child.forEach(consumer);
+	}
+
+	public List<XMLNode> toList() {
+		LinkedList<XMLNode> result = new LinkedList<>();
+		forEach(result::add);
+		return result;
 	}
 }
